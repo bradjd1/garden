@@ -6,7 +6,6 @@ module.exports = {
       "Seeds",
       [
         {
-          id: 1,
           name: 'Pea',
           variety: "Litle Marvel",
           yrPurchased: '2021',
@@ -18,9 +17,9 @@ module.exports = {
           result: "tasty but small harvest",
           createdAt: new Date(),
           updatedAt: new Date(),
+          gardenId: 1,
         },
         {
-          id: 2,
           name: 'Lettuce',
           variety: "Black Seeded Simpson",
           yrPurchased: '2021',
@@ -32,6 +31,7 @@ module.exports = {
           result: "good. survived late frost. grew well but bolted early",
           createdAt: new Date(),
           updatedAt: new Date(),
+          gardenId: 1,
         },
       ],
       {}

@@ -6,7 +6,6 @@ module.exports = {
       "Gardens",
       [
         {
-          id: 1,
           seedId: 1,
           year: '2020',
           notes: 'need protection from rabbits, planted in Eastern quadrant',
@@ -14,7 +13,6 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          id: 2,
           seedId: 2,
           year: '2021',
           notes: 'need protection from rabbits, planted in Eastern quadrant',

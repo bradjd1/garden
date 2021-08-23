@@ -18,9 +18,10 @@
         Description: <input type="text" name="desc" value="<%=seed.desc%>"><br>
         Purchase Again: <input type="text" name="purch_again" value="<%=seed.purch_again%>"><br>
         Result: <input type="text" name="result" value="<%=seed.result%>"><br>
+        Garden ID: <input type="text" name="gardenId" value="<%=seed.gardenId%>"><br>
         <input type="submit" value="Save">
     </form>
-    
+
     <form action="/seeds/<%=id%>?_method=DELETE" method='POST'>
         <input type="submit" value="Delete Profile">
     </form>

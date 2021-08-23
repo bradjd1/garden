@@ -4,19 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit garden page</title>
+    <title>Garden page</title>
 </head>
 <body>
-    <h1>Edit garden page</h1>
+    <h1>Garden page</h1>
     <form action = "/gardens/<%=id%>?_method=PUT" method="post">
-        SeedId: <input type="text" name="Seed ID" value="<%=garden.seedId%>"><br>
+        <!-- SeedId: <input type="text" name="Seed ID" value="<%#=garden.seedId%>"><br> -->
         Year: <input type="text" name="year" value="<%=garden.year%>"><br>
         Notes: <input type="text" name="notes" value="<%=garden.notes%>"><br>
         <input type="submit" value="Save">
     </form>
     
+    <a href='/gardens'>Return to list of Gardens</a>
+    <a href='/seeds'>Return to list of Seeds</a>
+
+    <h3>Seeds planted:</h3>
+    <ul>
+    <% for(let i=0;i < garden.Seeds.length;i++) { %>
+        <li>
+            <%= garden.Seeds[i].name %>, <%= garden.Seeds[i].variety %> purchased in <%= garden.Seeds[i].yrPurchased %>
+            for $<%= garden.Seeds[i].price %> from <%= garden.Seeds[i].purch_from %> 
+            <br> Desc: <%= garden.Seeds[i].desc %> 
+            <br> Result: <%= garden.Seeds[i].result %> 
+            <br> Plant again: <%= garden.Seeds[i].purch_again %>: 
+        </li>
+        <a href="/seeds/<%= garden.Seeds[i].id %>">Open the <%=garden.Seeds[i].name%> seed page</a>
+        <br>
+    <% } %>
+</ul>
+
     <form action="/gardens/<%=id%>?_method=DELETE" method='POST'>
-        <input type="submit" value="Delete Profile">
+        <input type="submit" value="Delete this garden">
     </form>
     <br>
     

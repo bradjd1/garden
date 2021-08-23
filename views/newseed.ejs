@@ -10,6 +10,11 @@
 <body>
     <h1>New Seed page</h1>
 
+    <a href='/seeds'>Return to list of seeds</a>
+    <br>
+    <a href='/gardens'>Show list of gardens</a>
+    <br>
+
     <form action="/seeds" method="POST">
         Name: <input type="text" name="name"><br>
         Variety: <input type="text" name="variety"><br>
@@ -20,6 +25,7 @@
         Description: <input type="text" name="desc"><br>
         Purchase Again: <input type="text" name="purch_again"><br>
         Result: <input type="text" name="result"><br>
+        Garden ID: <input type="text" name="gardenId"><br>
         <input type="submit" value="Create Seed">
     </form>
 </body>

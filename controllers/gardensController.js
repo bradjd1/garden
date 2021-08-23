@@ -36,15 +36,37 @@ router.get("/new", (req, res) => {
 
 
 // find garden for edit
-router.get('/:id', (req, res) => {
-  Garden.findByPk(req.params.id).then((garden) => {
-      console.log('in get id',garden,req.params.id);
-      res.render('editgarden.ejs', {
-          garden: garden,
-          id: req.params.id
-      });
+// router.get('/:id', (req, res) => {
+//   Garden.findByPk(req.params.id).then((garden) => {
+//       console.log('in get id',garden,req.params.id);
+//       res.render('editgarden.ejs', {
+//           garden: garden,
+//           id: req.params.id
+//       });
+//   });
+// });
+
+// find garden for edit
+router.get("/:id", (req, res) => {
+  Garden.findByPk(req.params.id, {
+    // include: [User],
+    include: [{
+      model: Seed,
+      attributes: ['id','name', 'variety', 'yrPurchased','price', 'purch_from', 'gardenId', 'desc', 'purch_again', 'result']
+    },
+  ],
+    attributes: ['id','year','notes']
+  }).then((garden) => {
+    // if we did a console.log of fruit here we would see the user data is included
+    //console.log('in get garden seeds is', garden.Seeds)
+    res.render("editgarden.ejs", {
+      garden: garden,
+      id: req.params.id
+    });
   });
 });
+
+
 
 //edit garden
 router.put('/:id', (req, res) => {
