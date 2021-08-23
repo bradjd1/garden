@@ -16,22 +16,50 @@ const Seed = require('../models').Seed;
 //   });
 
 router.get("/", (req, res) => {
-    Garden.findAll({ order: ['id'] }).then((gardens) => {
+    Garden.findAll({ order: [['year','desc']] }).then((gardens) => {
       res.render("showgarden.ejs", {
         gardens: gardens,
       });
     });
   });
 
-//create new garden - do I need a subfolder?
+//create new garden
 router.get("/new", (req, res) => {
     res.render('newgarden.ejs');
 })
 //create new garden
-  router.post("/new", (req, res) => {
+  router.post("/", (req, res) => {
     Garden.create(req.body).then((newGarden) => {
         res.redirect('/gardens');
     });
 });
 
+
+// find garden for edit
+router.get('/:id', (req, res) => {
+  Garden.findByPk(req.params.id).then((garden) => {
+      console.log('in get id',garden,req.params.id);
+      res.render('editgarden.ejs', {
+          garden: garden,
+          id: req.params.id
+      });
+  });
+});
+
+//edit garden
+router.put('/:id', (req, res) => {
+  console.log('in put garden',req.params)
+  Garden.update(req.body, {
+      where: { id: req.params.id },
+      returning: true,
+  }).then((garden) => {
+      res.redirect('/gardens');
+  });
+})
+
+router.delete('/:id', (req,res) => {
+  Garden.destroy({ where: { id: req.params.id } }).then(() => {
+      res.redirect("/gardens");
+    });
+  });
 module.exports=router;

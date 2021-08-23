@@ -12,7 +12,7 @@
     <h1>Garden page</h1>
    
     <nav>
-        <a href='/gardens/new'>Add a new item to the garden</a>
+        <a href='/gardens/new'>Add a new garden</a>
     </nav>
     <ul>
        <% for(let i = 0; i<gardens.length; i++) { %>
@@ -22,7 +22,7 @@
                <form action="/gardens/<%=gardens[i].id%>?_method=DELETE" method='POST'>    <!--form can't delete so need to use a method -->
                 <input type="submit" value="Delete">
             </form> 
-            <a href="/garden/<%=gardens[i].id%>/edit">EDIT</a>
+            <a href="/gardens/<%=gardens[i].id%>">EDIT</a>
        <%} %>
     </ul>
 </body>
