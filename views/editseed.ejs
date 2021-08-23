@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit seed page</title>
+</head>
+<body>
+    <h1>Edit seed page</h1>
+    <form action = "/seeds/<%=id%>?_method=PUT" method="post">
+        Name: <input type="text" name="name" value="<%=seed.name%>"><br>
+        Variety: <input type="text" name="variety" value="<%=seed.variety%>"><br>
+        Year Purchased: <input type="text" name="yrPurchased" value="<%=seed.yrPurchased%>"><br>
+        Price: <input type="text" name="price" value="<%=seed.price%>"><br>
+        Purchased From: <input type="text" name="purch_from" value="<%=seed.purch_from%>"><br>
+        Catalog Seed ID: <input type="text" name="catSeedId" value="<%=seed.catSeedId%>"><br>
+        Description: <input type="text" name="desc" value="<%=seed.desc%>"><br>
+        Purchase Again: <input type="text" name="purch_again" value="<%=seed.purch_again%>"><br>
+        Result: <input type="text" name="result" value="<%=seed.result%>"><br>
+        <input type="submit" value="Save">
+    </form>
+    
+    <form action="/seeds/<%=id%>?_method=DELETE" method='POST'>
+        <input type="submit" value="Delete Profile">
+    </form>
+    <br>
+    
+</body>
+</html>
