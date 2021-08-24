@@ -8,16 +8,20 @@ const Garden = require('../models').Garden;
 
 //show a list of all seeds
 router.get("/", (req, res) => {
-    Seed.findAll({ order: ['id'] }).then((seeds) => {
-        res.render("showseeds.ejs", {
-            seeds: seeds,
-        });
+    Seed.findAll({ order: ['name'], include: [{model: Garden}], }
+    ).then((seeds) => {
+        Garden.findAll().then((gardens) => {
+            res.render("showseeds.ejs", {
+                seeds: seeds,
+                gardens: gardens,
+            });
+        })
     });
 });
 
-//create new seed 
+//create new seed, show list of gardens available on new seed page 
 router.get("/new", (req, res) => {
-    Garden.findAll().then((gardens) => {
+    Garden.findAll({ order: [['year', 'DESC']] }).then((gardens) => {
         res.render('newseed.ejs', {
             gardens: gardens
         });
@@ -38,7 +42,7 @@ router.get("/:id", (req, res) => {
             attributes: ['id', 'year', 'notes']
         },]
     }).then((seed) => {
-        Garden.findAll().then((gardens) => {
+        Garden.findAll({ order: [['year', 'DESC']] }).then((gardens) => {
             console.log('garden find all', gardens)
             console.log('first is', gardens[0].id)
             res.render('editseed.ejs', {
