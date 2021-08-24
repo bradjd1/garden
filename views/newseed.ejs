@@ -25,7 +25,17 @@
         Description: <input type="text" name="desc"><br>
         Purchase Again: <input type="text" name="purch_again"><br>
         Result: <input type="text" name="result"><br>
-        Garden ID: <input type="text" name="gardenId"><br>
+        <!-- Garden ID: <input type="text" name="gardenId"><br> -->
+        Garden:
+        <select name='gardenId'>
+            <% for(let i = 0;i < gardens.length; i++) { let selected = ( i == 0 )
+                ? "selected" : ""; %>
+                <option value='<%=gardens[i].id%>' ? 'selected' : '' %>><%=gardens[i].year%></option>
+                <% } %>
+        </select>
+        <br>
+
+
         <input type="submit" value="Create Seed">
     </form>
 </body>

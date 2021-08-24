@@ -17,7 +17,11 @@ router.get("/", (req, res) => {
 
 //create new seed 
 router.get("/new", (req, res) => {
-    res.render('newseed.ejs');
+    Garden.findAll().then((gardens) => {
+        res.render('newseed.ejs', {
+            gardens: gardens
+        });
+    });
 })
 //create new seed
 router.post("/", (req, res) => {
@@ -27,33 +31,25 @@ router.post("/", (req, res) => {
 });
 
 // find seed for edit
-// router.get('/:id', (req, res) => {
-//     Seed.findByPk(req.params.id).then((seed) => {
-//         console.log('in get id',seed,req.params.id);
-//         res.render('editseed.ejs', {
-//             seed: seed,
-//             id: req.params.id
-//         });
-//     });
-// });
-
-// find seed for edit
 router.get("/:id", (req, res) => {
     Seed.findByPk(req.params.id, {
-      include: [{
-        model: Garden,
-        attributes: ['id','year','notes']
-      },]
+        include: [{
+            model: Garden,
+            attributes: ['id', 'year', 'notes']
+        },]
     }).then((seed) => {
-      // if we did a console.log of fruit here we would see the user data is included
-      //console.log('in get id',seed,req.params.id);
-      res.render('editseed.ejs', {
-          seed: seed,
-          id: req.params.id
-      });
+        Garden.findAll().then((gardens) => {
+            console.log('garden find all', gardens)
+            console.log('first is', gardens[0].id)
+            res.render('editseed.ejs', {
+                seed: seed,
+                id: req.params.id,
+                gardens: gardens
+            });
+        });
     });
-  });
-  
+});
+
 //edit seed
 router.put('/:id', (req, res) => {
     //console.log('in put seed',req.params)
@@ -65,10 +61,10 @@ router.put('/:id', (req, res) => {
     });
 })
 
-router.delete('/:id', (req,res) => {
+router.delete('/:id', (req, res) => {
     Seed.destroy({ where: { id: req.params.id } }).then(() => {
         res.redirect("/seeds");
-      });
     });
+});
 
 module.exports = router;

@@ -22,7 +22,15 @@
         Description: <input type="text" name="desc" value="<%=seed.desc%>"><br>
         Purchase Again: <input type="text" name="purch_again" value="<%=seed.purch_again%>"><br>
         Result: <input type="text" name="result" value="<%=seed.result%>"><br>
-        Garden ID: <input type="text" name="gardenId" value="<%=seed.gardenId%>"><br>
+        <!-- Garden ID: <input type="text" name="gardenId" value="<%#=seed.gardenId%>"><br> -->
+        Garden:
+        <select name='gardenId'>
+            <% for(let i = 0;i < gardens.length; i++) { let selected = ( i == 0 )
+                ? "selected" : ""; %>
+                <option value='<%=gardens[i].id%>' <%= seed.Garden.id == gardens[i].id ? 'selected' : '' %>><%=gardens[i].year%></option>
+                <% } %>
+        </select>
+        <br>
         <input type="submit" value="Save">
     </form>
 
