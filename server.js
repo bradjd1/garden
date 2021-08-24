@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express'); //from documentation: express is function. express will equal the express framework
 const app = express();  //create express object
 const methodOverride = require('method-override');  //used for form to be able to delete
@@ -11,6 +12,6 @@ app.use(methodOverride("_method"));
 app.use('/gardens', require('./controllers/gardensController.js'));
 app.use('/seeds', require("./controllers/seedsController.js"));
 
-app.listen(3000, ()=>{  //tell it to listen to port in .env
+app.listen(process.env.PORT, ()=>{  //tell it to listen to port in .env
     console.log("I am listening");
 });
