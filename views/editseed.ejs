@@ -8,6 +8,10 @@
 </head>
 <body>
     <h1>Edit seed page</h1>
+    <a href='/seeds'>Return to the seeds Page</a>
+    <a href="/gardens/">View gardens</a>
+    <br>
+    <br>
     <form action = "/seeds/<%=id%>?_method=PUT" method="post">
         Name: <input type="text" name="name" value="<%=seed.name%>"><br>
         Variety: <input type="text" name="variety" value="<%=seed.variety%>"><br>
@@ -23,7 +27,7 @@
     </form>
 
     <form action="/seeds/<%=id%>?_method=DELETE" method='POST'>
-        <input type="submit" value="Delete Profile">
+        <input type="submit" value="Delete Seed">
     </form>
     <br>
     

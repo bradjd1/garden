@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Garden page</h1>
+    <p>To add a seed to your garden, click the link 'Show list of seeds'.  To remove a seed from your garden, click on the link to the seed and set the garden id to 0.</p>
     <form action = "/gardens/<%=id%>?_method=PUT" method="post">
         <!-- SeedId: <input type="text" name="Seed ID" value="<%#=garden.seedId%>"><br> -->
         Year: <input type="text" name="year" value="<%=garden.year%>"><br>
@@ -16,7 +17,7 @@
     </form>
     
     <a href='/gardens'>Return to list of Gardens</a>
-    <a href='/seeds'>Return to list of Seeds</a>
+    <a href='/seeds'>Show list of Seeds</a>
 
     <h3>Seeds planted:</h3>
     <ul>
