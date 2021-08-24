@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1>Garden page</h1>
-    <p>Click on the year below to see the garden for that year.  Remember the ID number of the garden year you would like to add seeds to.</p>
+    <p>Click on the year below to see what is planted in the garden for that year.  To add a new item, go to the list of seeds, create or find the desired seed, and add the garden year to the seed..</p>
    
     <nav>
         <a href='/gardens/new'>Add a new garden</a>
@@ -19,7 +19,7 @@
     <ul>
        <% for(let i = 0; i<gardens.length; i++) { %>
             <li>
-                <a href="/gardens/<%=gardens[i].id%>">ID <%=gardens[i].id%>: <%=gardens[i].year %></a>
+                <a href="/gardens/<%=gardens[i].id%>"> <%=gardens[i].year %></a>
             </li>
                <form action="/gardens/<%=gardens[i].id%>?_method=DELETE" method='POST'>    <!--form can't delete so need to use a method -->
                 <input type="submit" value="Delete">
