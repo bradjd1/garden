@@ -1,6 +1,9 @@
 # garden
 This will allow you to keep track of what seeds you planted in your garden and how well they did.  You can make notes about the weather conditions and if the seeds grew well or not and how they tested.  There is a place where you can mark whether you want to purchase that seed again.
 
+Garden Tracker deployed to: https://brad-garden-tracker.herokuapp.com/gardens/
+GitHub repo: https://github.com/bradjd1/garden
+
 These are the user stories I was working from as I created this application.
 User Stories
 as a gardener I want a list of seeds to select from so I know what I can plant
