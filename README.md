@@ -26,25 +26,21 @@ I consulted stackoverflow, W3Schools, and the class instructor
 I started by creating screen ideas in excel.  Next I drafted what tables and columns I would need and identified primary and foreign keys.  My initial plan was to have a Garden object and add seeds to it.  After consulting with the class instructor, we changed the model to create a list of seeds and add them to a garden.  He also suggested that I start by building the seeds and garden routs, and add the foreign keys in through migration instead of trying to build then into the original design.  Based on that advice, I built the seeds and garden routes, added CRUD capabilities, then used migrate to built the link from seeds to gardens.  The application was put in a GitHub repository and published using Heroku.  I added a .css file and gave everything a background color and formated the textarea boxes a bit.
 
 tables:
+
 Gardens
-id: integer PK, FK to Seeds
-npx sequelize model:generate --name Garden --attributes id:integer,seedId:string,year:string,notes:string
+* id: integer PK, FK to Seeds
+* npx sequelize model:generate --name Garden --attributes id:integer,seedId:string,year:string,notes:string
 
 Seeds
-seedId:int PK
-npx sequelize model:generate --name Seed --attributes seedId:string,name:string,variety:string,yrPurchased:string,price:decimal(5,2),purch_from:string,catSeedId:string,desc:string,purch_again:string
+* seedId:int PK
+* npx sequelize model:generate --name Seed --attributes seedId:string,name:string,variety:string,yrPurchased:string,price:decimal(5,2),purch_from:string,catSeedId:string,desc:string,purch_again:string
 
 relationships:
-Gardens can have 0 to many seeds
-Seeds can be in 0 to 1 Garden
-
-tables:
-Gardens
-id: integer PK, FK to Seeds
-npx sequelize model:generate --name Garden --attributes id:integer,seedId:string,year:string,notes:string
+* Gardens can have 0 to many seeds
+* Seeds can be in 0 to 1 Garden
 
 Garden Screen
-<add garden> <list seeds>
+* <add garden> <list seeds>
 * year
 * delete
 * edit
@@ -56,10 +52,10 @@ add garden screen:
 * year
 * notes
 * save btn
-<back to seeds> <view gardens>
+* <back to seeds> <view gardens>
 
 show seeds screen
-<add seed> <add garden> <view garden>
+* <add seed> <add garden> <view garden>
 * seed name 'in' garden-name
 * delete
 * edit
@@ -71,7 +67,7 @@ show seeds screen
 * edit btn
 
 add Seeds Screen
-<return to seeds> <list gardens>
+* <return to seeds> <list gardens>
 * name
 * variety
 * year
@@ -85,12 +81,12 @@ add Seeds Screen
 * save btn
 
 Thoughts for the future:
-Add User routes/logins so multiple people can track gardens
-see if I can pull descriptions or pictures from a companies website
-ability to copy a seed
-perhaps from the garden page you could see a list of seeds, and put a check by the ones you want to add
+* Add User routes/logins so multiple people can track gardens
+* see if I can pull descriptions or pictures from a companies website
+* ability to copy a seed
+* perhaps from the garden page you could see a list of seeds, and put a check by the ones you want to add
   to your garden that year.
-perhaps a join table between gardens and seeds.  This would allow the same seed to be planted in multiple
+* perhaps a join table between gardens and seeds.  This would allow the same seed to be planted in multiple
   gardens, and eliminate the need to copy/duplicate seeds.
 
   For me, the hardest part was understanding how to model the data.  My original plan was to have a Garden table and allow you to enter as many seeds as you wanted.  But this would require multiple rows in the garden table, which would violate the unique key constraint.
