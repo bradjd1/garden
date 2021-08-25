@@ -20,9 +20,9 @@
         Price: <input type="text" name="price" value="<%=seed.price%>"><br>
         Purchased From: <input type="text" name="purch_from" value="<%=seed.purch_from%>"><br>
         Catalog Seed ID: <input type="text" name="catSeedId" value="<%=seed.catSeedId%>"><br>
-        Description: <input type="text" name="desc" value="<%=seed.desc%>"><br>
+        Description: <textarea type="text" name="desc" value="<%=seed.desc%>" id="textArea"><%=seed.desc%></textarea><br>
         Purchase Again: <input type="text" name="purch_again" value="<%=seed.purch_again%>"><br>
-        Result: <input type="text" name="result" value="<%=seed.result%>"><br>
+        Result: <textarea type="text" name="result" value="<%=seed.result%>" id="textArea"><%=seed.result%></textarea>textarea><br>
         <!-- Garden ID: <input type="text" name="gardenId" value="<%#=seed.gardenId%>"><br> -->
         Garden:
         <select name='gardenId'>

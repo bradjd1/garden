@@ -2,3 +2,13 @@ body {
     color: black;
     background-color: rgb(108, 224, 108);
 }
+
+#textArea {
+    Width: 85%;
+    height: 50px;
+    /* display: inline-block;
+    position: relative; */
+    /* overflow-wrap: break-word; */
+    word-wrap: break-word;
+    /* word-break: break-all; */
+}
