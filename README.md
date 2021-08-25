@@ -40,7 +40,7 @@ relationships:
 * Seeds can be in 0 to 1 Garden
 
 Garden Screen
-* <add garden> <list seeds>
+* add garden list seeds
 * year
 * delete
 * edit
@@ -52,10 +52,10 @@ add garden screen:
 * year
 * notes
 * save btn
-* <back to seeds> <view gardens>
+* back to seeds view gardens
 
 show seeds screen
-* <add seed> <add garden> <view garden>
+* add seed add garden view garden
 * seed name 'in' garden-name
 * delete
 * edit
@@ -67,7 +67,7 @@ show seeds screen
 * edit btn
 
 add Seeds Screen
-* <return to seeds> <list gardens>
+* return to seeds list gardens
 * name
 * variety
 * year
