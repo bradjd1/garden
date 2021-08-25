@@ -46,31 +46,35 @@ id: integer PK, FK to Seeds
 npx sequelize model:generate --name Garden --attributes id:integer,seedId:string,year:string,notes:string
 
 Garden Screen
-"year
+<add garden> <list seeds>
+year
 delete
-edit"
-"year
+edit
+year
 delete
-edit"
+edit
 
 add garden screen:
 year
 notes
 save btn
+<back to seeds> <view gardens>
 
 show seeds screen
-"seed name 'in' garden-name
+<add seed> <add garden> <view garden>
+seed name 'in' garden-name
 delete
-edit"
-"seed name 'in' garden-name
+edit
+seed name 'in' garden-name
 delete
-edit"
-"seed name 'in' garden-name
-delete
-edit"
+edit
+seed name 'in' garden-name
+delete btn
+edit btn
 
 add Seeds Screen
-"name
+<return to seeds> <list gardens>
+name
  var
 year
 price
@@ -80,5 +84,15 @@ description
 again
 result
 garden
-savebtn
-delete btn"
+save btn
+
+Thoughts for the future:
+Add User routes/logins so multiple people can track gardens
+see if I can pull descriptions or pictures from a companies website
+ability to copy a seed
+perhaps from the garden page you could see a list of seeds, and put a check by the ones you want to add
+  to your garden that year.
+perhaps a join table between gardens and seeds.  This would allow the same seed to be planted in multiple
+  gardens, and eliminate the need to copy/duplicate seeds.
+
+  For me, the hardest part was understanding how to model the data.  My original plan was to have a Garden table and allow you to enter as many seeds as you wanted.  But this would require multiple rows in the garden table, which would violate the unique key constraint.
